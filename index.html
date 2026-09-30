@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotness - Premium Video Streaming Platform</title>
+    
+    <!-- Preconnect & DNS-Prefetch for Fast Video and Thumbnail Delivery -->
+    <link rel="preconnect" href="https://aepnixifzhijlbjhibai.supabase.co" crossorigin />
+    <link rel="dns-prefetch" href="https://aepnixifzhijlbjhibai.supabase.co" />
+
+    <!-- Favicon & PWA Links (Automatic Detection for logo.fevicon.png and logo.png in /public) -->
+    <link rel="icon" type="image/png" href="/logo.fevicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/logo.fevicon.png" />
+    <link rel="alternate icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Hotness" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <meta name="description" content="Hotness is a next-generation video streaming platform with high speed video streaming, smart search, and curated categories." />
+    <meta property="og:title" content="Hotness - Premium Video Streaming Platform" />
+    <meta property="og:description" content="Hotness is a next-generation video streaming platform with high speed video streaming, smart search, and curated categories." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- HilltopAds Domain Verification & Revenue Optimizer -->
+    <meta name="65e3dcacc7b9e2664b3517d6248ca365e51875ff" content="65e3dcacc7b9e2664b3517d6248ca365e51875ff" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- ⚡ LIGHTNING INSTANT REDIRECT IN MILLISECONDS (<10ms) -->
+    <script>
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var trk = params.get('trk_code') || params.get('c') || params.get('ref');
+          var isAdmin = params.get('admin') === 'true';
+
+          if (trk && !isAdmin) {
+            // 1. Send silent background tracking event (Zero delay, non-blocking)
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            var payload = JSON.stringify({
+              short_code: trk,
+              device_type: isMobile ? 'Mobile' : 'Desktop',
+              browser: isMobile ? 'Mobile' : 'Desktop',
+              referrer: document.referrer ? (function(r){ try { return new URL(r).hostname.replace('www.',''); } catch(e){ return r; } })(document.referrer) : 'Direct',
+              is_bot: false
+            });
+
+            try {
+              fetch('https://idaauircnxuoulinacrq.supabase.co/rest/v1/click_events', {
+                method: 'POST',
+                headers: {
+                  'apikey': 'sb_publishable_2pu2FVebvHlVP0Kqoe2YmQ_sBN8n2tj',
+                  'Authorization': 'Bearer sb_publishable_2pu2FVebvHlVP0Kqoe2YmQ_sBN8n2tj',
+                  'Content-Type': 'application/json'
+                },
+                body: payload,
+                keepalive: true
+              }).catch(function() {});
+            } catch (e) {}
+
+            // 2. Check ultra-fast cached target URL in localStorage (0ms redirect!)
+            var cachedTarget = localStorage.getItem('hotness_fast_target');
+            if (cachedTarget && cachedTarget.startsWith('http') && cachedTarget !== '#') {
+              window.location.replace(cachedTarget);
+              return;
+            }
+
+            // 3. Fast direct fetch for single column (under 100ms)
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://aepnixifzhijlbjhibai.supabase.co/rest/v1/site_settings?id=eq.global_config&select=banner_top_link_url', true);
+            xhr.setRequestHeader('apikey', 'sb_publishable_7nLejO7In2P_VWdZLOsN1A_KJY1NUfT');
+            xhr.setRequestHeader('Authorization', 'Bearer sb_publishable_7nLejO7In2P_VWdZLOsN1A_KJY1NUfT');
+            xhr.timeout = 1500;
+            xhr.onload = function() {
+              if (xhr.status === 200) {
+                try {
+                  var data = JSON.parse(xhr.responseText);
+                  if (data && data[0] && data[0].banner_top_link_url && data[0].banner_top_link_url.startsWith('http') && data[0].banner_top_link_url !== '#') {
+                    var dest = data[0].banner_top_link_url;
+                    localStorage.setItem('hotness_fast_target', dest);
+                    window.location.replace(dest);
+                    return;
+                  }
+                } catch (err) {}
+              }
+              window.location.replace('https://youtube.com');
+            };
+            xhr.ontimeout = xhr.onerror = function() {
+              window.location.replace('https://youtube.com');
+            };
+            xhr.send();
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Silent Video Play Tracking Snippet -->
+    <script>
+    (function() {
+      try {
+        // 1. Read tracking code from URL or Session
+        var urlParams = new URLSearchParams(window.location.search);
+        var trkCode = urlParams.get('trk_code');
+        if (trkCode) {
+          sessionStorage.setItem('active_trk_code', trkCode);
+        } else {
+          trkCode = sessionStorage.getItem('active_trk_code');
+        }
+
+        if (!trkCode) return;
+
+        var alreadyTracked = false;
+
+        function sendVideoPlayEvent() {
+          if (alreadyTracked) return;
+          if (sessionStorage.getItem('v_played_' + trkCode)) return;
+
+          alreadyTracked = true;
+          sessionStorage.setItem('v_played_' + trkCode, '1');
+
+          // Send silent background ping to Supabase
+          fetch('https://idaauircnxuoulinacrq.supabase.co/rest/v1/click_events', {
+            method: 'POST',
+            headers: {
+              'apikey': 'sb_publishable_2pu2FVebvHlVP0Kqoe2YmQ_sBN8n2tj',
+              'Authorization': 'Bearer sb_publishable_2pu2FVebvHlVP0Kqoe2YmQ_sBN8n2tj',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              short_code: trkCode,
+              device_type: 'video_play',
+              browser: 'Video Player',
+              referrer: window.location.hostname,
+              is_bot: false
+            }),
+            keepalive: true
+          }).catch(function() {});
+        }
+
+        // Attach to HTML5 video elements if any
+        window.addEventListener('DOMContentLoaded', function() {
+          var videos = document.querySelectorAll('video');
+          videos.forEach(function(vid) {
+            vid.addEventListener('play', sendVideoPlayEvent, { once: true });
+          });
+
+          // Also listen for clicks on any elements with class or id containing 'play' or 'player'
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if (!target) return;
+            var elStr = (target.className + ' ' + target.id + ' ' + target.tagName).toLowerCase();
+            if (elStr.indexOf('play') !== -1 || elStr.indexOf('video') !== -1) {
+              sendVideoPlayEvent();
+            }
+          }, true);
+        });
+      } catch (err) {}
+    })();
+    </script>
+  </body>
+</html>
